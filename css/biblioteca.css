@@ -1,0 +1,383 @@
+:root {
+    --bg-dark: #1A1A40;
+    --text-light: #FFFFFF;
+    --accent-cyan: #00F0FF;
+    --accent-pink: #FF006E;
+    --accent-purple: #7B37FB;
+    --card-bg: #242456;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-light);
+}
+
+/* ---------- CABECALHO ---------- */
+
+header {
+    background-color: #121230;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--accent-purple);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+nav input {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-purple);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.logo-img {
+    height: 120px;
+    width: auto;
+}
+
+/* ---------- BOTOES ---------- */
+
+button {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: var(--accent-pink);
+    color: var(--text-light);
+}
+
+/* ---------- CONTEUDO PRINCIPAL ---------- */
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main h1 {
+    margin-bottom: 0.5rem;
+}
+
+.texto-explicativo {
+    color: #cccccc;
+    margin-bottom: 2rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+/* ---------- FORMULARIO ---------- */
+
+.secao-formulario {
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-purple);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+#form-jogo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.campo label {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+}
+
+.campo input,
+.campo select {
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-purple);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    width: 100%;
+}
+
+#form-jogo button {
+    grid-column: span 4;
+    justify-self: start;
+    padding: 0.6rem 1.5rem;
+}
+
+/* ---------- MENSAGENS ---------- */
+
+#mensagem {
+    margin-top: 1rem;
+    font-weight: 600;
+    min-height: 1.5rem;
+}
+
+#mensagem.sucesso {
+    color: var(--accent-cyan);
+}
+
+#mensagem.erro {
+    color: var(--accent-pink);
+}
+
+/* ---------- RESUMO ---------- */
+
+.cards-resumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.card-resumo {
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.card-resumo span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--accent-cyan);
+}
+
+.card-resumo p {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* ---------- LISTA DE JOGOS ---------- */
+
+.barra-lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.acoes-lista {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.acoes-lista label {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+}
+
+.acoes-lista select {
+    padding: 0.4rem;
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    border: 1px solid var(--accent-purple);
+}
+
+.lista-jogos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.card-jogo {
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card-jogo:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-pink);
+}
+
+.card-jogo h3 {
+    font-size: 1.05rem;
+}
+
+.card-jogo p {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+.etiqueta {
+    align-self: flex-start;
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+}
+
+.botoes-card {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.botoes-card button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.btn-remover {
+    background-color: var(--accent-pink);
+    color: var(--text-light);
+}
+
+.btn-remover:hover {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark);
+}
+
+.aviso-vazio {
+    grid-column: span 3;
+    text-align: center;
+    color: #cccccc;
+    padding: 2rem;
+    border: 1px dashed var(--accent-purple);
+    border-radius: 8px;
+}
+
+/* ---------- RODAPE ---------- */
+
+footer {
+    background-color: #121230;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--accent-purple);
+    margin-top: 4rem;
+    width: 100%;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* ---------- RESPONSIVO (celular e tablet) ---------- */
+
+@media (max-width: 900px) {
+    #form-jogo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #form-jogo button {
+        grid-column: span 2;
+    }
+
+    .cards-resumo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lista-jogos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .aviso-vazio {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+    }
+
+    .logo-img {
+        height: 80px;
+    }
+
+    #form-jogo {
+        grid-template-columns: 1fr;
+    }
+
+    #form-jogo button {
+        grid-column: span 1;
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .cards-resumo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lista-jogos {
+        grid-template-columns: 1fr;
+    }
+
+    .aviso-vazio {
+        grid-column: span 1;
+    }
+}
