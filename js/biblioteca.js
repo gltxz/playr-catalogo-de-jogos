@@ -1,8 +1,11 @@
 // ==========================================================
 // BIBLIOTECA - Playr
-// Guarda os jogos do usuario nas categorias Jogando,
-// Concluido e Lista de Desejos.
+// Guarda os jogos do usuário nas categorias Jogando,
+// Concluído e Lista de Desejos.
 // ==========================================================
+
+// Importa a validação do módulo ES6 (js/validacao.js)
+import { validarJogo } from "./validacao.js";
 
 // Array que guarda todos os jogos (cada jogo e um objeto)
 let biblioteca = [];
@@ -10,7 +13,7 @@ let biblioteca = [];
 // Constante com o nome da "gaveta" onde o navegador salva os dados
 const CHAVE = "playr-biblioteca";
 
-// Elementos do formulario
+// Elementos do formulário
 const form = document.getElementById("form-jogo");
 const inputNome = document.getElementById("nome");
 const selectPlataforma = document.getElementById("plataforma");
@@ -29,41 +32,7 @@ const mediaNotas = document.getElementById("media-notas");
 
 
 // ----------------------------------------------------------
-// VALIDACAO
-// Recebe os dados digitados e devolve o texto do erro.
-// Se estiver tudo certo, devolve uma string vazia.
-// ----------------------------------------------------------
-function validar(nome, plataforma, status, nota) {
-    if (nome == "") {
-        return "Digite o nome do jogo.";
-    }
-
-    else if (nome.length < 2) {
-        return "O nome do jogo precisa ter pelo menos 2 letras.";
-    }
-
-    else if (plataforma == "") {
-        return "Escolha uma plataforma.";
-    }
-
-    else if (status == "") {
-        return "Escolha um status.";
-    }
-
-    else if (isNaN(nota)) {
-        return "A nota precisa ser um numero.";
-    }
-
-    else if (nota < 0 || nota > 5) {
-        return "A nota precisa estar entre 0 e 5.";
-    }
-
-    return "";
-}
-
-
-// ----------------------------------------------------------
-// Mostra uma mensagem de erro ou de sucesso abaixo do formulario
+// Mostra uma mensagem de erro ou de sucesso abaixo do formulário
 // ----------------------------------------------------------
 function mostrarMensagem(texto, tipo) {
     mensagem.textContent = texto;
@@ -72,7 +41,7 @@ function mostrarMensagem(texto, tipo) {
 
 
 // ----------------------------------------------------------
-// Salva a biblioteca no navegador e le de volta
+// Salva a biblioteca no navegador e lê de volta
 // ----------------------------------------------------------
 function salvar() {
     localStorage.setItem(CHAVE, JSON.stringify(biblioteca));
@@ -107,27 +76,27 @@ function criarCard(jogo) {
     let botoes = document.createElement("div");
     botoes.className = "botoes-card";
 
-    // Botao que muda o status do jogo para Concluido
+    // Botão que muda o status do jogo para Concluído
     let btnConcluir = document.createElement("button");
     btnConcluir.type = "button";
     btnConcluir.textContent = "Concluir";
 
     btnConcluir.addEventListener("click", () => {
-        jogo.status = "Concluido";
+        jogo.status = "Concluído";
         salvar();
         mostrarJogos();
         atualizarResumo();
-        mostrarMensagem(jogo.nome + " foi marcado como concluido!", "sucesso");
+        mostrarMensagem(jogo.nome + " foi marcado como concluído!", "sucesso");
     });
 
-    // Botao que remove o jogo da biblioteca
+    // Botão que remove o jogo da biblioteca
     let btnRemover = document.createElement("button");
     btnRemover.type = "button";
     btnRemover.textContent = "Remover";
     btnRemover.className = "btn-remover";
 
     btnRemover.addEventListener("click", () => {
-        // indexOf descobre a posicao do jogo dentro do array
+        // indexOf descobre a posição do jogo dentro do array
         let posicao = biblioteca.indexOf(jogo);
         biblioteca.splice(posicao, 1);
 
@@ -137,8 +106,8 @@ function criarCard(jogo) {
         mostrarMensagem(jogo.nome + " foi removido da biblioteca.", "sucesso");
     });
 
-    // Se o jogo ja esta concluido, nao precisa do botao Concluir
-    if (jogo.status != "Concluido") {
+    // Se o jogo já está concluído, não precisa do botao Concluir
+    if (jogo.status != "Concluído") {
         botoes.appendChild(btnConcluir);
     }
 
@@ -171,11 +140,11 @@ function mostrarJogos() {
         }
     }
 
-    // Aviso para quando nao houver nenhum jogo para mostrar
+    // Aviso para quando não houver nenhum jogo para mostrar
     if (quantidade == 0) {
         let aviso = document.createElement("p");
         aviso.className = "aviso-vazio";
-        aviso.textContent = "Nenhum jogo por aqui ainda. Adicione o primeiro no formulario acima!";
+        aviso.textContent = "Nenhum jogo por aqui ainda. Adicione o primeiro no formulário acima!";
         lista.appendChild(aviso);
     }
 
@@ -184,7 +153,7 @@ function mostrarJogos() {
 
 
 // ----------------------------------------------------------
-// Atualiza os numeros do resumo (indicadores calculados)
+// Atualiza os números do resumo (indicadores calculados)
 // ----------------------------------------------------------
 function atualizarResumo() {
     let jogando = 0;
@@ -196,7 +165,7 @@ function atualizarResumo() {
             jogando = jogando + 1;
         }
 
-        else if (jogo.status == "Concluido") {
+        else if (jogo.status == "Concluído") {
             concluidos = concluidos + 1;
         }
 
@@ -220,7 +189,7 @@ function atualizarResumo() {
 
 
 // ----------------------------------------------------------
-// EVENTO: enviar o formulario para adicionar um jogo
+// EVENTO: enviar o formulário para adicionar um jogo
 // ----------------------------------------------------------
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
@@ -230,7 +199,7 @@ form.addEventListener("submit", (evento) => {
     let status = selectStatus.value;
     let nota = parseFloat(inputNota.value);
 
-    let erro = validar(nome, plataforma, status, nota);
+    let erro = validarJogo(nome, plataforma, status, nota);
 
     if (erro != "") {
         mostrarMensagem(erro, "erro");
@@ -251,7 +220,7 @@ form.addEventListener("submit", (evento) => {
     mostrarJogos();
     atualizarResumo();
 
-    mostrarMensagem(nome + " foi adicionado a sua biblioteca!", "sucesso");
+    mostrarMensagem(nome + " foi adicionado à sua biblioteca!", "sucesso");
     form.reset();
 });
 
@@ -269,7 +238,7 @@ filtro.addEventListener("change", () => {
 // ----------------------------------------------------------
 btnLimpar.addEventListener("click", () => {
     if (biblioteca.length == 0) {
-        mostrarMensagem("A biblioteca ja esta vazia.", "erro");
+        mostrarMensagem("A biblioteca já está vazia.", "erro");
         return;
     }
 
@@ -284,7 +253,7 @@ btnLimpar.addEventListener("click", () => {
 
 
 // ----------------------------------------------------------
-// Quando a pagina abre, le o que estava salvo e desenha tudo
+// Quando a página abre, le o que estava salvo e desenha tudo
 // ----------------------------------------------------------
 carregar();
 mostrarJogos();

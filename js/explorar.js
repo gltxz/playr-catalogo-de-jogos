@@ -1,3 +1,7 @@
+// Importa a função que salva o jogo na mesma biblioteca (localStorage)
+// que a página Biblioteca usa
+import { adicionarJogo, extrairNota } from './dados.js';
+
 // Seleciona os elementos de busca e os cards de jogos
 const searchInput = document.querySelector('.search-filter-bar input');
 const filterBtn = document.querySelector('.search-filter-bar button');
@@ -25,7 +29,21 @@ searchInput.addEventListener('keyup', filtrarJogos);
 const botoesAdicionar = document.querySelectorAll('article button');
 botoesAdicionar.forEach(botao => {
     botao.addEventListener('click', (event) => {
-        event.stopPropagation(); // Impede que o clique abra a página de detalhes
-        alert('Jogo adicionado à sua biblioteca!');
+        event.preventDefault();  // Impede que o clique no botão siga o link do card
+        event.stopPropagation(); // Impede que o clique "vaze" pro card e abra a página de detalhes
+
+        const card = event.target.closest('article');
+        const nomeJogo = card.querySelector('h3').textContent;
+        const nota = extrairNota(card.querySelector('p').textContent);
+
+        // Os cards do Explorar não mostram a plataforma, então
+        // salvamos como "Não informado"
+        const conseguiuAdicionar = adicionarJogo(nomeJogo, 'Não informado', nota, 'Jogando');
+
+        if (conseguiuAdicionar) {
+            alert(`"${nomeJogo}" foi adicionado à sua biblioteca!`);
+        } else {
+            alert(`"${nomeJogo}" já está na sua biblioteca!`);
+        }
     });
 });

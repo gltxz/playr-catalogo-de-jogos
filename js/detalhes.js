@@ -1,3 +1,11 @@
+// Importa a função que salva o jogo na mesma biblioteca (localStorage)
+// que a página Biblioteca usa
+import { adicionarJogo, extrairNota } from './dados.js';
+
+// Guarda o jogo que está sendo mostrado na tela agora, pra
+// poder usar nos botões "Adicionar" e "Wishlist" lá embaixo
+let jogoAtual = null;
+
 // Base de dados dos jogos em um objeto JSON
 const jogos = {
     "god-of-war": {
@@ -5,7 +13,6 @@ const jogos = {
         estudio: "Santa Monica Studio",
         ano: "2024",
         capa: "img/God_of_War_Ragnarok_capa.jpg",
-        video: "videos/god.mp4",
         plataformas: ["PC", "PS5", "Xbox"],
         generos: ["RPG", "Ação", "Mundo Aberto"],
         nota: "★ 4.8 / 5.0",
@@ -16,7 +23,6 @@ const jogos = {
         estudio: "Insomniac Games",
         ano: "2023",
         capa: "img/marvel.avif",
-        video: "videos/homemaranha.mp4",
         plataformas: ["PS5", "PC"],
         generos: ["Ação", "Aventura", "Mundo Aberto"],
         nota: "★ 4.2 / 5.0",
@@ -27,7 +33,6 @@ const jogos = {
         estudio: "Team Asobi",
         ano: "2024",
         capa: "img/Astro_Bot_capa.png",
-        video: "videos/Astro-Bot-Announcement-Trailer-PS5.mp4",
         plataformas: ["PS5"],
         generos: ["Plataforma", "Aventura"],
         nota: "★ 4.6 / 5.0",
@@ -38,7 +43,6 @@ const jogos = {
         estudio: "Insomniac Games",
         ano: "2021",
         capa: "img/rat.avif",
-        video: "videos/rat.mp4",
         plataformas: ["PS5", "PC"],
         generos: ["Ação", "Aventura", "Plataforma"],
         nota: "★ 3.8 / 5.0",
@@ -49,7 +53,6 @@ const jogos = {
         estudio: "Housemarque",
         ano: "2021",
         capa: "img/returnal.avif",
-        video: "videos/Returnal-Gameplay-Trailer-PS5_Media_.mp4",
         plataformas: ["PS5", "PC"],
         generos: ["Ação", "Tiro", "Roguelike"],
         nota: "★ 4.0 / 5.0",
@@ -60,11 +63,52 @@ const jogos = {
         estudio: "Bluepoint Games",
         ano: "2020",
         capa: "img/Demons_Souls_remake_capa.png",
-        video: "videos/Demon-s-Souls-Gameplay-Trailer-PS5_.mp4",
         plataformas: ["PS5", "PC"],
         generos: ["RPG", "Ação", "Soulslike"],
         nota: "★ 4.9 / 5.0",
         sinopse: "Totalmente reconstruído do zero, este remake convida você a experimentar a história perturbadora e a ação implacável de Demon's Souls. Desbrave o reino sombrio de Boletaria, enfrente demônios colossais e teste seus limites em um dos RPGs de ação mais desafiadores da história."
+    },
+
+    // Jogos que também aparecem em destaque na Home
+    "sonic": {
+        titulo: "Sonic",
+        estudio: "Sega",
+        ano: "2022",
+        capa: "img/capasonic.jpg",
+        plataformas: ["PC", "PlayStation", "Xbox", "Nintendo"],
+        generos: ["Aventura", "Plataforma", "Ação"],
+        nota: "★ 4.8 / 5.0",
+        sinopse: "Sonic corre em alta velocidade para impedir os planos do Dr. Robotnik, enfrentando fases cheias de loopings, atalhos e power-ups em cenários vibrantes."
+    },
+    "fifa2025": {
+        titulo: "FIFA2025",
+        estudio: "EA Sports",
+        ano: "2025",
+        capa: "img/FIFA2025.avif",
+        plataformas: ["PC", "PlayStation", "Xbox"],
+        generos: ["Esporte", "Simulação"],
+        nota: "★ 4.5 / 5.0",
+        sinopse: "O simulador de futebol com times, campeonatos e jogadores licenciados, além de modo carreira e partidas online contra jogadores do mundo todo."
+    },
+    "mario": {
+        titulo: "Mario",
+        estudio: "Nintendo",
+        ano: "2023",
+        capa: "img/mario.png",
+        plataformas: ["Nintendo"],
+        generos: ["Plataforma", "Aventura"],
+        nota: "★ 4.9 / 5.0",
+        sinopse: "Mario e seus amigos enfrentam fases cheias de blocos, moedas e inimigos clássicos em uma aventura de plataforma que pode ser jogada sozinho ou com até 4 jogadores."
+    },
+    "gta": {
+        titulo: "GTA",
+        estudio: "Rockstar Games",
+        ano: "2013",
+        capa: "img/gta.webp",
+        plataformas: ["PC", "PlayStation", "Xbox"],
+        generos: ["Ação", "Mundo Aberto", "Aventura"],
+        nota: "★ 4.9 / 5.0",
+        sinopse: "Em um mundo aberto imenso, viva histórias de crime organizado, explore a cidade de Los Santos e participe do modo online com missões e atividades para todos os gostos."
     }
 };
 
@@ -73,7 +117,7 @@ function carregarDetalhesDoJogo() {
     const urlParams = new URLSearchParams(window.location.search);
     const idJogo = urlParams.get('jogo') || 'god-of-war'; // Se não tiver nada na URL, abre o God of War por padrão
 
-    const jogoAtual = jogos[idJogo];
+    jogoAtual = jogos[idJogo];
 
     if (jogoAtual) {
         // Atualiza a página com os dados do jogo selecionado
@@ -82,7 +126,8 @@ function carregarDetalhesDoJogo() {
         document.getElementById('game-studio-year').innerText = `Desenvolvedora: ${jogoAtual.estudio} | Ano: ${jogoAtual.ano}`;
         document.getElementById('game-cover-img').src = jogoAtual.capa;
         document.getElementById('game-cover-img').alt = `Capa de ${jogoAtual.titulo}`;
-        document.getElementById('game-video').src = jogoAtual.video;
+        document.getElementById('game-banner-img').src = jogoAtual.capa;
+        document.getElementById('game-banner-img').alt = `Capa de ${jogoAtual.titulo}`;
         document.getElementById('game-rating').innerText = jogoAtual.nota;
         document.getElementById('game-synopsis-text').innerText = jogoAtual.sinopse;
 
@@ -104,11 +149,31 @@ function carregarDetalhesDoJogo() {
 
 // Interatividade dos botões com JavaScript
 document.getElementById('btn-add-library')?.addEventListener('click', () => {
-    alert('Jogo adicionado à sua Biblioteca!');
+    if (!jogoAtual) return;
+
+    const nota = extrairNota(jogoAtual.nota);
+    const plataforma = jogoAtual.plataformas.join(', ');
+    const conseguiuAdicionar = adicionarJogo(jogoAtual.titulo, plataforma, nota, 'Jogando');
+
+    if (conseguiuAdicionar) {
+        alert(`"${jogoAtual.titulo}" foi adicionado à sua Biblioteca!`);
+    } else {
+        alert(`"${jogoAtual.titulo}" já está na sua Biblioteca!`);
+    }
 });
 
 document.getElementById('btn-wishlist')?.addEventListener('click', () => {
-    alert('Jogo adicionado à sua Wishlist!');
+    if (!jogoAtual) return;
+
+    const nota = extrairNota(jogoAtual.nota);
+    const plataforma = jogoAtual.plataformas.join(', ');
+    const conseguiuAdicionar = adicionarJogo(jogoAtual.titulo, plataforma, nota, 'Lista de Desejos');
+
+    if (conseguiuAdicionar) {
+        alert(`"${jogoAtual.titulo}" foi adicionado à sua Wishlist!`);
+    } else {
+        alert(`"${jogoAtual.titulo}" já está na sua biblioteca!`);
+    }
 });
 
 // Executa a função assim que a página carregar

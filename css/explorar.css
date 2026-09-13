@@ -1,72 +1,7 @@
-:root {
-    --bg-dark: #1A1A40;
-    --text-light: #FFFFFF;
-    --accent-cyan: #00F0FF;
-    --accent-pink: #FF006E;
-    --accent-purple: #7B37FB;
-    --card-bg: #242456;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-}
-
-h1, h2, h3 {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--text-light);
-}
-
-header {
-    background-color: #121230;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid var(--accent-purple);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-}
-
-nav h1 {
-    color: var(--accent-cyan);
-    font-size: 1.5rem;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-nav form {
-    display: flex;
-    gap: 0.5rem;
-}
-
-nav input {
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--accent-purple);
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-}
-
-nav button, main button, article button, .search-filter-bar button, .pagination button {
+main button,
+article button,
+.search-filter-bar button,
+.pagination button {
     background-color: var(--accent-cyan);
     color: var(--bg-dark);
     border: none;
@@ -75,49 +10,12 @@ nav button, main button, article button, .search-filter-bar button, .pagination 
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
-}
-
-nav button:hover, main button:hover, article button:hover, .search-filter-bar button:hover, .pagination button:hover {
+}main button:hover,
+article button:hover,
+.search-filter-bar button:hover,
+.pagination button:hover {
     background-color: var(--accent-pink);
     color: var(--text-light);
-}
-
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-section {
-    margin-bottom: 3rem;
-}
-
-footer {
-    background-color: #121230;
-    text-align: center;
-    padding: 2rem 1rem;
-    border-top: 1px solid var(--accent-purple);
-    margin-top: 4rem;
-    width: 100%;
-}
-
-footer ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 2rem;
-    margin-top: 1rem;
-    padding: 0;
-}
-
-footer a {
-    color: var(--text-light);
-    text-decoration: none;
-}
-
-.logo-img {
-    height: 120px;
-    width: auto;
 }
 
 .hero-banner {
@@ -296,6 +194,13 @@ article h3 {
     line-clamp: 2; /* Adiciona a versão padrão para o VS Code não reclamar */
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* Nota do jogo (★ 4.7). Sem isso ela herda a cor azul/sublinhado
+   padrão do navegador, porque o card inteiro é um link <a> */
+article p {
+    color: var(--text-light);
+    text-decoration: none;
 }
 
 .pagination {

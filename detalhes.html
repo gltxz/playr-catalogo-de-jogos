@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playr - Detalhes do Jogo</title>
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/explorar.css">
     <link rel="stylesheet" href="css/detalhes.css">
 </head>
@@ -12,27 +13,30 @@
     <header>
         <nav>
             <a href="index.html">
-                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+                <img src="img/logo.png" alt="Playr" class="logo-img">
             </a>
-            <ul>
+
+            <ul class="menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="explorar.html" class="ativo">Explorar</a></li>
                 <li><a href="biblioteca.html">Biblioteca</a></li>
                 <li><a href="comunidade.html">Comunidade</a></li>
             </ul>
-            <form>
-                <input type="text" placeholder="Buscar...">
-                <button type="submit">Buscar</button>
-            </form>
-            <a href="perfil.html">Perfil</a>
+
+            <a href="perfil.html" class="perfil" title="Perfil">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"></path>
+                </svg>
+            </a>
         </nav>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="details-main">
-        <!-- Banner Superior com o Vídeo -->
+        <!-- Banner Superior com a Capa do Jogo -->
         <div class="game-banner">
-            <video id="game-video" autoplay muted loop controls></video>
+            <img id="game-banner-img" src="" alt="">
         </div>
 
         <!-- Seção Principal de Informações -->
@@ -93,11 +97,11 @@
     <footer>
         <p>&copy; 2026 Playr. Todos os direitos reservados.</p>
         <ul>
+            <li><a href="sobre.html">Sobre nós</a></li>
             <li><a href="termos.html">Termos de Uso</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html">Redes Sociais</a></li>
+            <li><a href="contato.html">Contato</a></li>
         </ul>
     </footer>
-    <script src="js/detalhes.js"></script>
+    <script type="module" src="js/detalhes.js"></script>
 </body>
 </html>

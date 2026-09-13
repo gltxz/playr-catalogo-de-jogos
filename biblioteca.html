@@ -4,44 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playr - Minha Biblioteca</title>
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/biblioteca.css">
 </head>
 <body>
-    <!-- CABECALHO DA PAGINA -->
+    <!-- CABEÇALHO DA PAGINA -->
     <header>
         <nav>
             <a href="index.html">
-                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+                <img src="img/logo.png" alt="Playr" class="logo-img">
             </a>
-            <ul>
+
+            <ul class="menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="explorar.html">Explorar</a></li>
-                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="biblioteca.html" class="ativo">Biblioteca</a></li>
                 <li><a href="comunidade.html">Comunidade</a></li>
             </ul>
-            <form>
-                <input type="text" placeholder="Buscar...">
-                <button type="submit">Buscar</button>
-            </form>
-            <a href="perfil.html">Perfil</a>
+
+            <a href="perfil.html" class="perfil" title="Perfil">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8z"></path>
+                </svg>
+            </a>
         </nav>
     </header>
 
-    <!-- CONTEUDO PRINCIPAL -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main>
         <h1>Minha Biblioteca</h1>
         <p class="texto-explicativo">
-            Organize aqui os jogos que voce esta jogando, os que ja terminou e os que quer jogar um dia.
+            Organize aqui os jogos que você está jogando, os que já terminou e os que quer jogar um dia.
         </p>
 
-        <!-- SECAO 1: FORMULARIO PARA ADICIONAR UM JOGO -->
-        <section class="secao-formulario">
+        <!-- SEÇÃO 1: FORMULARIO PARA ADICIONAR UM JOGO -->
+        <section class="secao-formulário">
             <h2>Adicionar jogo</h2>
 
             <form id="form-jogo">
                 <div class="campo">
                     <label for="nome">Nome do jogo:</label>
-                    <input type="text" id="nome" placeholder="Ex: God of War Ragnarok">
+                    <input type="text" id="nome" placeholder="Ex: God of War Ragnarök">
                 </div>
 
                 <div class="campo">
@@ -60,7 +64,7 @@
                     <select id="status">
                         <option value="">Selecione...</option>
                         <option value="Jogando">Jogando</option>
-                        <option value="Concluido">Concluido</option>
+                        <option value="Concluído">Concluído</option>
                         <option value="Lista de Desejos">Lista de Desejos</option>
                     </select>
                 </div>
@@ -73,11 +77,11 @@
                 <button type="submit">Adicionar jogo</button>
             </form>
 
-            <!-- AREA DE MENSAGENS DE ERRO E DE SUCESSO -->
+            <!-- ÁREA DE MENSAGENS DE ERRO E DE SUCESSO -->
             <p id="mensagem"></p>
         </section>
 
-        <!-- SECAO 2: RESUMO DA BIBLIOTECA -->
+        <!-- SEÇÃO 2: RESUMO DA BIBLIOTECA -->
         <section class="secao-resumo">
             <h2>Resumo</h2>
             <div class="cards-resumo">
@@ -91,16 +95,16 @@
                 </div>
                 <div class="card-resumo">
                     <span id="total-concluidos">0</span>
-                    <p>Concluidos</p>
+                    <p>Concluídos</p>
                 </div>
                 <div class="card-resumo">
                     <span id="media-notas">0.0</span>
-                    <p>Nota media</p>
+                    <p>Nota média</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECAO 3: LISTA DOS JOGOS -->
+        <!-- SEÇÃO 3: LISTA DOS JOGOS -->
         <section class="secao-lista">
             <div class="barra-lista">
                 <h2>Meus jogos</h2>
@@ -110,7 +114,7 @@
                     <select id="filtro">
                         <option value="Todos">Todos</option>
                         <option value="Jogando">Jogando</option>
-                        <option value="Concluido">Concluido</option>
+                        <option value="Concluído">Concluído</option>
                         <option value="Lista de Desejos">Lista de Desejos</option>
                     </select>
 
@@ -118,21 +122,21 @@
                 </div>
             </div>
 
-            <!-- Os cards dos jogos sao criados pelo JavaScript aqui dentro -->
+            <!-- Os cards dos jogos são criados pelo JavaScript aqui dentro -->
             <div id="lista-jogos" class="lista-jogos"></div>
         </section>
     </main>
 
-    <!-- RODAPE DA PAGINA -->
+    <!-- RODAPÉ DA PAGINA -->
     <footer>
         <p>&copy; 2026 Playr. Todos os direitos reservados.</p>
         <ul>
+            <li><a href="sobre.html">Sobre nós</a></li>
             <li><a href="termos.html">Termos de Uso</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="contato.html">Redes Sociais</a></li>
+            <li><a href="contato.html">Contato</a></li>
         </ul>
     </footer>
 
-    <script src="js/biblioteca.js"></script>
+    <script type="module" src="js/biblioteca.js"></script>
 </body>
 </html>

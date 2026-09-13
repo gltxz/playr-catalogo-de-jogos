@@ -1,72 +1,5 @@
-:root {
-    --bg-dark: #1A1A40;
-    --text-light: #FFFFFF;
-    --accent-cyan: #00F0FF;
-    --accent-pink: #FF006E;
-    --accent-purple: #7B37FB;
-    --card-bg: #242456;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-}
-
-h1, h2, h3 {
-    font-family: 'Orbitron', sans-serif;
-    color: var(--text-light);
-}
-
-header {
-    background-color: #121230;
-    padding: 1rem 2rem;
-    border-bottom: 1px solid var(--accent-purple);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-}
-
-nav h1 {
-    color: var(--accent-cyan);
-    font-size: 1.5rem;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-nav form {
-    display: flex;
-    gap: 0.5rem;
-}
-
-nav input {
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid var(--accent-purple);
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-}
-
-nav button, main button, article button {
+main button,
+article button {
     background-color: var(--accent-cyan);
     color: var(--bg-dark);
     border: none;
@@ -75,21 +8,10 @@ nav button, main button, article button {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
-}
-
-nav button:hover, main button:hover, article button:hover {
+}main button:hover,
+article button:hover {
     background-color: var(--accent-pink);
     color: var(--text-light);
-}
-
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-section {
-    margin-bottom: 3rem;
 }
 
 section > div {
@@ -242,30 +164,4 @@ article h3 {
 
 .auth-link:hover {
     text-decoration: underline;
-}
-
-footer {
-    background-color: #121230;
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid var(--accent-purple);
-    margin-top: 4rem;
-}
-
-footer ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-footer a {
-    color: var(--text-light);
-    text-decoration: none;
-}
-
-.logo-img {
-    height: 120px;
-    width: auto;
 }

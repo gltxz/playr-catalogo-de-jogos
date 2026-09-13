@@ -4,7 +4,10 @@
 // e entrar nos grupos.
 // ==========================================================
 
-// Elementos do formulario
+// Importa a validação do módulo ES6 (js/validacao.js)
+import { validarPost } from "./validacao.js";
+
+// Elementos do formulário
 const form = document.getElementById("form-post");
 const campoTexto = document.getElementById("texto");
 const mensagem = document.getElementById("mensagem");
@@ -14,29 +17,8 @@ const feed = document.getElementById("feed");
 const btnOrdem = document.getElementById("btn-ordem");
 const botoesGrupo = document.querySelectorAll(".btn-grupo");
 
-// Guarda se o feed esta na ordem normal ou invertida
+// Guarda se o feed está na ordem normal ou invertida
 let invertido = false;
-
-
-// ----------------------------------------------------------
-// VALIDACAO
-// Devolve o texto do erro. String vazia quer dizer tudo certo.
-// ----------------------------------------------------------
-function validar(texto) {
-    if (texto == "") {
-        return "Escreva alguma coisa antes de publicar.";
-    }
-
-    else if (texto.length < 5) {
-        return "A publicacao precisa ter pelo menos 5 letras.";
-    }
-
-    else if (texto.length > 200) {
-        return "A publicacao pode ter no maximo 200 letras.";
-    }
-
-    return "";
-}
 
 
 // ----------------------------------------------------------
@@ -80,7 +62,7 @@ function criarPost(texto) {
     post.className = "post";
 
     let nome = document.createElement("h3");
-    nome.textContent = "Voce";
+    nome.textContent = "Você";
 
     let info = document.createElement("p");
     info.className = "post-info";
@@ -106,7 +88,7 @@ function criarPost(texto) {
 
     btnApagar.addEventListener("click", () => {
         post.remove();
-        mostrarMensagem("Publicacao apagada.", "sucesso");
+        mostrarMensagem("Publicação apagada.", "sucesso");
     });
 
     botoes.appendChild(btnCurtir);
@@ -122,14 +104,14 @@ function criarPost(texto) {
 
 
 // ----------------------------------------------------------
-// EVENTO: enviar o formulario para publicar
+// EVENTO: enviar o formulário para publicar
 // ----------------------------------------------------------
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
     let texto = campoTexto.value.trim();
 
-    let erro = validar(texto);
+    let erro = validarPost(texto);
 
     if (erro != "") {
         mostrarMensagem(erro, "erro");
@@ -138,11 +120,11 @@ form.addEventListener("submit", (evento) => {
 
     let post = criarPost(texto);
 
-    // insertBefore coloca o post novo antes do primeiro que ja existe
+    // insertBefore coloca o post novo antes do primeiro que já existe
     feed.insertBefore(post, feed.firstElementChild);
 
     form.reset();
-    mostrarMensagem("Publicacao enviada!", "sucesso");
+    mostrarMensagem("Publicação enviada!", "sucesso");
 });
 
 

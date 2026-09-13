@@ -1,0 +1,223 @@
+/* ==========================================================
+   BASE - Playr
+   Tudo que e igual em todas as paginas: fontes, cores,
+   cabecalho, menu e rodape. Cada pagina carrega este arquivo
+   primeiro e depois o CSS so dela.
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #1A1A40;
+    --text-light: #FFFFFF;
+    --text-muted: #C4C4D6;
+    --accent-cyan: #00F0FF;
+    --accent-pink: #FF006E;
+    --accent-purple: #7B37FB;
+    --card-bg: #242456;
+    --header-bg: #121230;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', Arial, sans-serif;
+    color: var(--text-light);
+}
+
+/* ---------- CABECALHO ---------- */
+
+/* body > header mira so na barra do topo, e nao em um
+   <header> que esteja dentro de um card */
+body > header {
+    background-color: var(--header-bg);
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid var(--accent-purple);
+}
+
+/* As tres colunas deixam o menu no centro exato da tela:
+   logo na esquerda, menu no meio, perfil na direita */
+nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 76px;
+    width: auto;
+    display: block;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    color: var(--accent-cyan);
+}
+
+.menu a.ativo {
+    color: var(--accent-cyan);
+    border-bottom-color: var(--accent-cyan);
+}
+
+.perfil {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-purple);
+    color: var(--text-light);
+    transition: 0.2s;
+}
+
+.perfil:hover {
+    background-color: var(--accent-purple);
+    border-color: var(--accent-purple);
+}
+
+.perfil svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* ---------- CONTEUDO PRINCIPAL ---------- */
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+main h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+/* Texto de apoio embaixo do titulo da pagina */
+.texto-explicativo {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* ---------- BOTOES ---------- */
+
+button {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: var(--accent-pink);
+    color: var(--text-light);
+}
+
+/* ---------- RODAPE ---------- */
+
+footer {
+    background-color: var(--header-bg);
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--accent-purple);
+    margin-top: 4rem;
+    width: 100%;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+footer a:hover {
+    color: var(--accent-cyan);
+}
+
+/* ---------- RESPONSIVO ---------- */
+
+@media (max-width: 700px) {
+    body > header {
+        padding: 0.8rem 1rem;
+    }
+
+    /* No celular o menu desce para uma linha propria */
+    nav {
+        grid-template-columns: auto auto;
+        row-gap: 0.8rem;
+    }
+
+    .menu {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        gap: 1.2rem;
+    }
+
+    .logo-img {
+        height: 56px;
+    }
+}
