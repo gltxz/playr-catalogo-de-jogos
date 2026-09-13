@@ -1,0 +1,189 @@
+:root {
+    --bg-dark: #1A1A40;
+    --text-light: #FFFFFF;
+    --accent-cyan: #00F0FF;
+    --accent-pink: #FF006E;
+    --accent-purple: #7B37FB;
+    --card-bg: #242456;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-light);
+}
+
+/* CABEÇALHO (mesmo padrão do restante do site) */
+
+header {
+    background-color: #121230;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--accent-purple);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+nav ul a:hover,
+nav > a:last-child:hover {
+    color: var(--accent-cyan);
+}
+
+nav form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+nav input {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--accent-purple);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+nav button {
+    background-color: var(--accent-cyan);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+}
+
+/* HERO */
+
+.termos-hero {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    border-bottom: 1px solid var(--accent-purple);
+    margin-bottom: 2rem;
+}
+
+.termos-hero h1 {
+    font-size: 2.2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.termos-hero p {
+    color: #9C9CD9;
+    font-size: 0.9rem;
+}
+
+/* LISTA DE CLÁUSULAS */
+
+.termos-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.termos-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-purple);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.termos-item h2 {
+    color: var(--accent-pink);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.termos-item p {
+    color: #D7D7F5;
+}
+
+.termos-item a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+}
+
+.termos-item a:hover {
+    color: var(--text-light);
+}
+
+/* RODAPÉ (mesmo padrão do restante do site) */
+
+footer {
+    background-color: #121230;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--accent-purple);
+    margin-top: 4rem;
+    width: 100%;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding: 0;
+}
+
+footer a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--accent-cyan);
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+
+    footer ul {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
