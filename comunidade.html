@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playr - Comunidade</title>
+    <link rel="stylesheet" href="css/comunidade.css">
+</head>
+<body>
+    <!-- CABECALHO DA PAGINA -->
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+            </ul>
+            <form>
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </form>
+            <a href="perfil.html">Perfil</a>
+        </nav>
+    </header>
+
+    <!-- CONTEUDO PRINCIPAL -->
+    <main>
+        <h1>Comunidade</h1>
+        <p class="texto-explicativo">
+            Veja o que os outros jogadores estao jogando e compartilhe o que voce achou dos seus jogos.
+        </p>
+
+        <!-- SECAO 1: CRIAR UMA PUBLICACAO -->
+        <section class="secao-publicar">
+            <h2>Criar publicacao</h2>
+
+            <form id="form-post">
+                <div class="campo">
+                    <label for="texto">O que voce quer contar?</label>
+                    <textarea id="texto" rows="3" placeholder="Terminei um jogo, achei um jogo bom..."></textarea>
+                </div>
+
+                <button type="submit">Publicar</button>
+            </form>
+
+            <!-- AREA DE MENSAGENS DE ERRO E DE SUCESSO -->
+            <p id="mensagem"></p>
+        </section>
+
+        <!-- SECAO 2: FEED COM AS PUBLICACOES -->
+        <section class="secao-feed">
+            <div class="barra-feed">
+                <h2>Feed da comunidade</h2>
+                <button type="button" id="btn-ordem">Mais recentes</button>
+            </div>
+
+            <div id="feed">
+                <article class="post">
+                    <h3>Lucas Almeida</h3>
+                    <p class="post-info">concluiu God of War Ragnarok</p>
+                    <p class="post-texto">
+                        Que final incrivel! A trilha sonora e os combates fizeram essa jornada entrar no meu top 5.
+                    </p>
+                    <div class="botoes-post">
+                        <button type="button" class="btn-curtir">Curtir (32)</button>
+                    </div>
+                </article>
+
+                <article class="post">
+                    <h3>Beatriz Martins</h3>
+                    <p class="post-info">publicou em Discussoes gerais</p>
+                    <p class="post-texto">
+                        Vou comecar uma campanha cooperativa no sabado. Quem quiser entrar, deixa o horario nos comentarios!
+                    </p>
+                    <div class="botoes-post">
+                        <button type="button" class="btn-curtir">Curtir (18)</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECAO 3: GRUPOS -->
+        <section class="secao-grupos">
+            <h2>Grupos para voce</h2>
+
+            <div class="lista-grupos">
+                <div class="grupo">
+                    <h3>Cacadores de Platina</h3>
+                    <p>12,4 mil membros</p>
+                    <button type="button" class="btn-grupo">Entrar</button>
+                </div>
+
+                <div class="grupo">
+                    <h3>Indies BR</h3>
+                    <p>8,1 mil membros</p>
+                    <button type="button" class="btn-grupo">Entrar</button>
+                </div>
+
+                <div class="grupo">
+                    <h3>Coop no fim de semana</h3>
+                    <p>3,7 mil membros</p>
+                    <button type="button" class="btn-grupo">Entrar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPE DA PAGINA -->
+    <footer>
+        <p>&copy; 2026 Playr. Todos os direitos reservados.</p>
+        <ul>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#">Redes Sociais</a></li>
+        </ul>
+    </footer>
+
+    <script src="js/comunidade.js"></script>
+</body>
+</html>

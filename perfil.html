@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playr - Entrar</title>
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<header>
+    <body>
+        <nav>
+            <a href="index.html">
+                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <form class="auth-left" action="index.html">
+                <div>
+                    <h2>Entrar</h2>
+                    <p>Por favor, insira seus dados.</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Endereço de E-mail ou Nome de Usuário</label>
+                    <input type="text" id="email" placeholder="Digite seu e-mail ou usuário" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha" required>
+                </div>
+
+                <div>
+                    <a href="#" class="auth-link" onclick="alert('Um link de recuperação foi enviado para o seu e-mail!'); return false;">Esqueceu sua senha?</a>
+                </div>
+
+                <button type="submit">Entrar</button>
+
+                <p>
+                    Novo por aqui? <a href="cadastro.html" class="auth-link">Criar conta</a>
+                </p>
+            </form>
+
+            <div class="auth-divider">
+                <span>ou</span>
+            </div>
+
+            <div class="auth-right">
+                <a href="https://store.steampowered.com/login" target="_blank" class="social-btn recommended">
+                    <span class="badge-rec">Recomendado</span>
+                    <span>🎮 Entrar com Steam*</span>
+                </a>
+                <a href="https://www.facebook.com/login" target="_blank" class="social-btn">
+                    <span>📘 Entrar com Facebook</span>
+                </a>
+                <a href="https://accounts.google.com" target="_blank" class="social-btn">
+                    <span>🌐 Entrar com Google</span>
+                </a>
+
+                <a href="https://discord.com/login" target="_blank" class="social-btn">
+                    <span>💬 Entrar com Discord</span>
+                </a>
+
+                <a href="https://www.twitch.tv/login" target="_blank" class="social-btn">
+                    <span>📺 Entrar com Twitch</span>
+                </a>
+
+                <p class="auth-footer-text">*Sincronize sua lista de desejos e biblioteca da Steam para ofertas personalizadas!</p>
+            </div>
+           
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Playr - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

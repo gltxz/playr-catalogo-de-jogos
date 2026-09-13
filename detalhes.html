@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playr - Detalhes do Jogo</title>
+    <link rel="stylesheet" href="css/explorar.css">
+    <link rel="stylesheet" href="css/detalhes.css">
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+            </ul>
+            <form>
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </form>
+            <a href="perfil.html">Perfil</a>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="details-main">
+        <!-- Banner Superior com o Vídeo -->
+        <div class="game-banner">
+            <video id="game-video" autoplay muted loop controls></video>
+        </div>
+
+        <!-- Seção Principal de Informações -->
+        <div class="game-main-info">
+            <div class="game-cover">
+                <img id="game-cover-img" src="" alt="Capa do Jogo">
+            </div>
+
+            <div class="game-details-text">
+                <h1 id="game-title">Carregando...</h1>
+                <p id="game-studio-year" class="studio-year"></p>
+
+                <div class="info-badges">
+                    <div class="badge-row">
+                        <span>Plataformas:</span>
+                        <span id="platforms-list"></span>
+                    </div>
+                    <div class="badge-row">
+                        <span>Gêneros:</span>
+                        <span id="genres-list"></span>
+                    </div>
+                </div>
+
+                <p class="community-rating">NOTA DA COMUNIDADE <span id="game-rating"></span></p>
+
+                <div class="action-buttons">
+                    <button type="button" id="btn-add-library" class="btn-primary">+ Adicionar</button>
+                    <button type="button" id="btn-wishlist" class="btn-secondary">♡ Wishlist</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sinopse -->
+        <section class="game-synopsis">
+            <h2>SINOPSE</h2>
+            <p id="game-synopsis-text"></p>
+        </section>
+
+        <!-- Reviews da Comunidade -->
+        <section class="game-reviews">
+            <div class="reviews-title-bar">
+                <h2>REVIEWS DA COMUNIDADE</h2>
+                <button type="button" class="btn-review">+ Escrever Review</button>
+            </div>
+
+            <div class="review-card-item">
+                <div class="review-header">
+                    <span class="user-name">Lucas</span>
+                    <span class="review-time">há 2 dias</span>
+                    <div class="review-stars">★★★★☆</div>
+                </div>
+                <p class="review-text">"Excelente jogabilidade, mas exige bastante do computador..."</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2026 Playr. Todos os direitos reservados.</p>
+        <ul>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#">Redes Sociais</a></li>
+        </ul>
+    </footer>
+    <script src="js/detalhes.js"></script>
+</body>
+</html>

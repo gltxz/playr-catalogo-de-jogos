@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playr - Minha Biblioteca</title>
+    <link rel="stylesheet" href="css/biblioteca.css">
+</head>
+<body>
+    <!-- CABECALHO DA PAGINA -->
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+            </ul>
+            <form>
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </form>
+            <a href="perfil.html">Perfil</a>
+        </nav>
+    </header>
+
+    <!-- CONTEUDO PRINCIPAL -->
+    <main>
+        <h1>Minha Biblioteca</h1>
+        <p class="texto-explicativo">
+            Organize aqui os jogos que voce esta jogando, os que ja terminou e os que quer jogar um dia.
+        </p>
+
+        <!-- SECAO 1: FORMULARIO PARA ADICIONAR UM JOGO -->
+        <section class="secao-formulario">
+            <h2>Adicionar jogo</h2>
+
+            <form id="form-jogo">
+                <div class="campo">
+                    <label for="nome">Nome do jogo:</label>
+                    <input type="text" id="nome" placeholder="Ex: God of War Ragnarok">
+                </div>
+
+                <div class="campo">
+                    <label for="plataforma">Plataforma:</label>
+                    <select id="plataforma">
+                        <option value="">Selecione...</option>
+                        <option value="PC">PC</option>
+                        <option value="PlayStation">PlayStation</option>
+                        <option value="Xbox">Xbox</option>
+                        <option value="Nintendo">Nintendo</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="status">Status:</label>
+                    <select id="status">
+                        <option value="">Selecione...</option>
+                        <option value="Jogando">Jogando</option>
+                        <option value="Concluido">Concluido</option>
+                        <option value="Lista de Desejos">Lista de Desejos</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="nota">Nota (0 a 5):</label>
+                    <input type="number" id="nota" step="0.1" placeholder="Ex: 4.5">
+                </div>
+
+                <button type="submit">Adicionar jogo</button>
+            </form>
+
+            <!-- AREA DE MENSAGENS DE ERRO E DE SUCESSO -->
+            <p id="mensagem"></p>
+        </section>
+
+        <!-- SECAO 2: RESUMO DA BIBLIOTECA -->
+        <section class="secao-resumo">
+            <h2>Resumo</h2>
+            <div class="cards-resumo">
+                <div class="card-resumo">
+                    <span id="total-jogos">0</span>
+                    <p>Jogos na biblioteca</p>
+                </div>
+                <div class="card-resumo">
+                    <span id="total-jogando">0</span>
+                    <p>Jogando</p>
+                </div>
+                <div class="card-resumo">
+                    <span id="total-concluidos">0</span>
+                    <p>Concluidos</p>
+                </div>
+                <div class="card-resumo">
+                    <span id="media-notas">0.0</span>
+                    <p>Nota media</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECAO 3: LISTA DOS JOGOS -->
+        <section class="secao-lista">
+            <div class="barra-lista">
+                <h2>Meus jogos</h2>
+
+                <div class="acoes-lista">
+                    <label for="filtro">Mostrar:</label>
+                    <select id="filtro">
+                        <option value="Todos">Todos</option>
+                        <option value="Jogando">Jogando</option>
+                        <option value="Concluido">Concluido</option>
+                        <option value="Lista de Desejos">Lista de Desejos</option>
+                    </select>
+
+                    <button type="button" id="btn-limpar">Limpar biblioteca</button>
+                </div>
+            </div>
+
+            <!-- Os cards dos jogos sao criados pelo JavaScript aqui dentro -->
+            <div id="lista-jogos" class="lista-jogos"></div>
+        </section>
+    </main>
+
+    <!-- RODAPE DA PAGINA -->
+    <footer>
+        <p>&copy; 2026 Playr. Todos os direitos reservados.</p>
+        <ul>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#">Redes Sociais</a></li>
+        </ul>
+    </footer>
+
+    <script src="js/biblioteca.js"></script>
+</body>
+</html>

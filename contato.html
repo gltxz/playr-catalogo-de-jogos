@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playr - Contato</title>
+    <link rel="stylesheet" href="css/contato.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+            </a>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+            </ul>
+
+            <form>
+                <input type="text" placeholder="Buscar jogos, listas...">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <a href="perfil.html">Perfil</a>
+        </nav>
+    </header>
+    
+    <main>
+
+        <!-- PERGUNTAS FREQUENTES -->
+        <section class="faq-section">
+            <h1>Perguntas Frequentes</h1>
+
+            <div class="faq-list">
+
+                <article class="faq-item">
+                    <button class="faq-question" type="button">
+                        <strong>"Como posso criar uma conta na Playr?"</strong>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Você pode criar sua conta acessando a página de
+                            <a href="cadastro.html">cadastro</a> e preenchendo
+                            seus dados. Depois disso, poderá acessar seu perfil
+                            e utilizar os recursos disponíveis na plataforma.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="faq-item">
+                    <button class="faq-question" type="button">
+                        <strong>"Como encontro um jogo no catálogo?"</strong>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Acesse a página
+                            <a href="explorar.html">Explorar</a> para pesquisar
+                            e encontrar jogos no catálogo.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="faq-item">
+                    <button class="faq-question" type="button">
+                        <strong>"Posso organizar meus jogos favoritos?"</strong>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Sim. Depois de acessar seu perfil, você poderá
+                            utilizar os recursos relacionados à sua biblioteca
+                            e aos seus jogos.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="faq-item">
+                    <button class="faq-question" type="button">
+                        <strong>"Como posso enviar uma dúvida ou sugestão?"</strong>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Utilize a área de contato abaixo. Escolha o assunto
+                            da mensagem e escreva sua dúvida, sugestão ou outro
+                            comentário para a equipe Playr.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="faq-item">
+                    <button class="faq-question" type="button">
+                        <strong>"Preciso estar logado para entrar em contato?"</strong>
+                        <span class="faq-icon">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        <p>
+                            Para acessar seu perfil, clique em
+                            <a href="perfil.html">Perfil</a>. A página de contato
+                            também apresenta o formulário para você enviar sua
+                            mensagem.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- CONTATO -->
+        <section class="contact-section">
+
+            <div class="contact-heading">
+
+                <h2>Contate-nos</h2>
+
+                <p>
+                    Para enviar uma mensagem, acesse seu perfil ou, caso já
+                    esteja conectado, preencha o formulário ao lado.
+                </p>
+
+                <a href="perfil.html" class="profile-link">
+                    Entrar no meu perfil
+                </a>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <form id="contact-form">
+
+                    <div class="input-group">
+
+                        <label for="subject">
+                            Assunto
+                        </label>
+
+                        <select
+                            id="subject"
+                            name="subject"
+                            required
+                        >
+
+                            <option value="" disabled selected>
+                                Selecione uma opção
+                            </option>
+
+                            <option value="assunto">
+                                Assunto
+                            </option>
+
+                            <option value="duvida">
+                                Dúvida
+                            </option>
+
+                            <option value="sugestao">
+                                Sugestão
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="message">
+                            Mensagem
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="8"
+                            placeholder="Escreva sua mensagem..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-send"
+                    >
+                        Enviar mensagem
+                    </button>
+
+
+                    <p
+                        id="form-status"
+                        class="form-status"
+                        role="status"
+                    ></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer>
+
+        <p>
+            &copy; 2026 Playr. Todos os direitos reservados.
+        </p>
+
+        <ul>
+
+            <li>
+                <a href="sobre.html">
+                    Sobre nós
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Termos de Uso
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Privacidade
+                </a>
+            </li>
+
+            <li>
+                <a href="contato.html">
+                    Contato
+                </a>
+            </li>
+
+        </ul>
+
+    </footer>
+
+
+    <script src="js/contato.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cadastro</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img src="img/logo.png" alt="Playr Logo" class="logo-img">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <form class="auth-left" action="index.html">
+                <div>
+                    <h2>Criar Conta</h2>
+                    <p>Preencha os campos para se registrar.</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="name">Nome de Usuário</label>
+                    <input type="text" id="name" placeholder="Escolha um nome" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Crie uma senha" required>
+                </div>
+
+                <button type="submit">Cadastrar</button>
+
+                <p>
+                    Já tem uma conta? <a href="perfil.html" class="auth-link">Entrar</a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Playr - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
